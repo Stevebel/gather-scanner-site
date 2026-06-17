@@ -1,0 +1,28 @@
+---
+import { site, nav } from "../data/site";
+import CtaButton from "./CtaButton.astro";
+---
+
+<nav
+  class="bg-background/90 backdrop-blur-md w-full top-0 sticky z-50 border-b border-surface-border transition-all"
+>
+  <div class="flex justify-between items-center w-full px-page-margin py-4 max-w-7xl mx-auto">
+    <a href="#top" class="flex items-center gap-2">
+      <img alt="" class="w-8 h-8 rounded-lg" src={site.icon} width="32" height="32" />
+      <span class="text-headline-md font-headline-md font-bold text-primary">{site.name}</span>
+    </a>
+    <div class="hidden md:flex gap-stack-lg items-center">
+      {
+        nav.map((item) => (
+          <a
+            class="text-on-surface-variant hover:text-primary transition-colors font-label-md"
+            href={item.href}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </div>
+    <CtaButton />
+  </div>
+</nav>

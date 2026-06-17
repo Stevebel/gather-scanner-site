@@ -1,0 +1,33 @@
+---
+// Section 10 — Built by one person.
+import Icon from "./Icon.astro";
+import MediaPlaceholder from "./MediaPlaceholder.astro";
+---
+
+<section class="w-full max-w-3xl mx-auto text-left">
+  <div class="bg-surface-container-highest p-8 rounded-2xl border border-surface-border relative">
+    <Icon name="format_quote" class="absolute top-6 right-6 text-surface-border text-5xl opacity-30" />
+    <h3 class="text-headline-md font-headline-md text-on-surface mb-6 pr-12">
+      Made by a Magic player tired of clunky scanners getting in the way of organizing a collection.
+    </h3>
+    <p class="text-body-md font-body-md text-on-surface-variant italic mb-6">
+      Hey, I'm Steve. I've been playing Magic and writing code for over 20 years, and Gather Scanner
+      is what happened when those two collided. I built it for my friends and me: a low-fuss
+      way to keep our collections organized so we can spend less time searching through boxes and more
+      time actually enjoying the hobby. I made it to make my life better, so every feature earned its place. 
+      I belive our data should belong to us, so I made it easy to export everything, you're never locked in.
+    </p>
+    <div class="flex items-center gap-4">
+      <MediaPlaceholder
+        label="Steve"
+        icon="person"
+        ratio="1/1"
+        class="w-12 h-12 rounded-full shrink-0"
+      />
+      <div>
+        <h4 class="text-label-md font-label-md text-on-surface">Steve</h4>
+        <span class="text-label-sm font-label-sm text-text-muted">Creator, Gather Scanner</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,45 @@
+---
+// Section 3 — Pull Lists. Includes the resolved-list visual from the mockup.
+import CheckList from "./CheckList.astro";
+
+const points = [
+  "Import lists from popular MTG deck-building sites.",
+  "See, card by card, where each one lives in your collection.",
+  "Know instantly what you're missing and need to pick up.",
+];
+---
+
+<section class="w-full flex flex-col md:flex-row-reverse items-center gap-16" id="pull-lists">
+  <div class="flex-1 flex flex-col gap-stack-lg">
+    <h2 class="text-headline-lg font-headline-lg text-on-surface">
+      It knows your collection better than you do.
+    </h2>
+    <h3 class="text-headline-md font-headline-md text-primary">
+      Building a deck? Let the app go find the cards.
+    </h3>
+    <p class="text-body-lg font-body-lg text-on-surface-variant">
+      A Pull List turns a decklist into a find-it guide. Paste or import a list from the
+      deck-building sites you already use, and Gather Scanner checks it against your collection and
+      tells you exactly where each card is, which binder, box, or deck it's sitting in, so you're
+      not tearing the house apart for one Counterspell.
+    </p>
+    <CheckList items={points} class="mt-4" />
+  </div>
+
+  <!-- Visual: a Pull List resolved to locations. -->
+  <div
+    class="flex-1 w-full bg-surface-elevated rounded-2xl p-8 border border-surface-border relative overflow-hidden flex items-center justify-center"
+  >
+    <div class="absolute inset-0 bg-pattern opacity-10"></div>
+    <div class="relative z-10 w-full max-w-sm">
+      <img
+        src="/pull-list.jpg"
+        alt="A Pull List resolved to locations, showing which binder or box each card is in"
+        width="1206"
+        height="2622"
+        class="w-full rounded-[2rem] border-4 border-surface-container-high shadow-xl"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>

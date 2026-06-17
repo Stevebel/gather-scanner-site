@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TopNav from "../components/TopNav.astro";
+import Hero from "../components/Hero.astro";
+import Features from "../components/Features.astro";
+import PullLists from "../components/PullLists.astro";
+import CollectionSection from "../components/CollectionSection.astro";
+import Privacy from "../components/Privacy.astro";
+import Pricing from "../components/Pricing.astro";
+import About from "../components/About.astro";
+import FinalCta from "../components/FinalCta.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<BaseLayout>
+  <TopNav />
+  <main id="top" class="flex-grow flex flex-col gap-24 md:gap-32 pb-32 w-full max-w-7xl mx-auto px-page-margin">
+    <Hero />
+    <Features />
+    <PullLists />
+    <CollectionSection />
+    <Privacy />
+    <Pricing />
+    <About />
+    <FinalCta />
+  </main>
+  <Footer />
+</BaseLayout>

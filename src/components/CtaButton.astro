@@ -1,0 +1,32 @@
+---
+// Primary call-to-action. Pre-launch it renders a "Coming Soon" button; once
+// `launch.launched` is true and an App Store URL is set, it becomes a real link.
+// This is the single place the launch swap happens.
+import { launch } from "../data/site";
+
+interface Props {
+  /** Visual size. "lg" is the hero/bold variant. */
+  size?: "md" | "lg";
+  class?: string;
+}
+const { size = "md", class: className = "" } = Astro.props;
+
+const sizing =
+  size === "lg"
+    ? "px-8 py-4 text-lg font-bold"
+    : "px-component-padding-x py-component-padding-y";
+
+const base = `bg-primary-container text-on-primary-container font-label-md rounded-full transition-all active:scale-95 duration-200 border border-primary/50 inline-flex items-center justify-center ${sizing} ${className}`;
+---
+
+{
+  launch.launched && launch.appStoreUrl ? (
+    <a href={launch.appStoreUrl} class={`${base} hover:bg-primary-fixed`}>
+      Download on the App Store
+    </a>
+  ) : (
+    <a href="#get-started" class={`${base} hover:bg-primary-fixed`}>
+      Coming Soon
+    </a>
+  )
+}

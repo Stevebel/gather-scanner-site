@@ -1,0 +1,114 @@
+---
+// Section 1 — Hero. Copy preserved from the original mockup.
+//
+// Two layouts:
+//  - md and up: the classic side-by-side text + phone-frame video.
+//  - below md: a full-bleed video that's pinned (position: sticky) to the top of the
+//    viewport while the headline (in a frosted-glass card) scrolls up and away over it.
+//    The video stays pinned until the tall section scrolls past, then it releases.
+import { launch } from "../data/site";
+import CtaButton from "./CtaButton.astro";
+---
+
+{/* ── Desktop / tablet (md+) ─────────────────────────────────────────── */}
+<section
+  class="hidden md:flex relative w-full flex-row items-center gap-12 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-surface-container/20 via-background to-background pt-12 pb-24"
+>
+  <div class="flex-1 flex flex-col gap-stack-lg z-10">
+    <h1
+      class="text-[64px] font-display font-bold text-on-surface leading-tight tracking-tight"
+    >
+      Finally, a card scanner that <span class="text-primary">works</span> where you
+      <span class="text-primary">play</span>.
+    </h1>
+    <p class="text-body-lg font-body-lg text-on-surface-variant max-w-xl">
+      Fast, accurate card recognition powered by advanced computer vision. In your hand,
+      double-sleeved, badly lit, foil, no problem. No perfectly-lit white background required.
+    </p>
+    <div class="flex items-center gap-stack-md pt-4">
+      <CtaButton size="lg" />
+      <span class="text-text-muted text-label-sm font-label-sm">{launch.platformNote}</span>
+    </div>
+  </div>
+  <div class="flex-1 w-full max-w-[23.8rem] relative mx-auto">
+    <div class="absolute inset-0 bg-primary/10 blur-[100px] rounded-full z-0"></div>
+    <div
+      class="relative z-10 rounded-[40px] border-[8px] border-surface-container-high shadow-2xl overflow-hidden"
+    >
+      <!-- Hero centerpiece: autoplaying muted loop of hand-to-hand scanning. -->
+      <video data-hero-video class="block w-full" autoplay loop muted playsinline preload="metadata" poster="/hero-poster.jpg">
+        <!-- WebM first: capable browsers get the smaller VP9; others fall through to H.264. -->
+        <source src="/hero.webm" type="video/webm" />
+        <source src="/hero.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</section>
+
+{/* ── Mobile (below md): pinned video + scroll-away glass headline ────── */}
+<section class="md:hidden relative -mx-page-margin min-h-[200vh]">
+  <!-- Pinned, full-bleed video. Sticky to the top of the viewport; releases when the
+       tall section has scrolled past. -->
+  <div class="sticky top-0 h-[100svh] w-full overflow-hidden">
+    <video
+      data-hero-video
+      class="w-full h-full object-cover"
+      autoplay
+      loop
+      muted
+      playsinline
+      preload="metadata"
+      poster="/hero-poster.jpg"
+    >
+      <source src="/hero.webm" type="video/webm" />
+      <source src="/hero.mp4" type="video/mp4" />
+    </video>
+    <!-- Gentle top darkening so the glass card stays legible. -->
+    <div class="absolute inset-0 bg-gradient-to-b from-background/70 via-transparent to-transparent"></div>
+    <!-- Fade the bottom edge into the page background so the release reads as a blend, not a hard cut. -->
+    <div class="absolute bottom-0 left-0 right-0 h-[8em] bg-gradient-to-b from-transparent to-background"></div>
+  </div>
+
+  <!-- Headline overlay: anchored to the top of the section so it scrolls up and away
+       while the video underneath stays pinned. -->
+  <div class="absolute top-0 left-0 right-0 h-[100svh] flex items-start justify-center pt-[8em] px-page-margin">
+    <div
+      class="bg-background/30 backdrop-blur-xl border border-surface-border/60 rounded-3xl p-6 shadow-2xl flex flex-col gap-stack-md"
+    >
+      <h1 class="text-[40px] font-display font-bold text-on-surface leading-tight tracking-tight">
+        Finally, a card scanner that <span class="text-primary">works</span> where you
+        <span class="text-primary">play</span>.
+      </h1>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Fast, accurate card recognition powered by advanced computer vision. In your hand,
+        double-sleeved, badly lit, foil, no problem.
+      </p>
+      <div class="flex items-center gap-stack-md pt-2">
+        <CtaButton size="lg" />
+        <span class="text-text-muted text-label-sm font-label-sm">{launch.platformNote}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Only one of the two hero videos is visible per breakpoint. `autoplay` only fires
+  // at load for whichever was visible, so on resize we (re)start the now-visible one
+  // and pause the hidden one.
+  const videos = document.querySelectorAll<HTMLVideoElement>("[data-hero-video]");
+  const isVisible = (el: HTMLElement) =>
+    typeof el.checkVisibility === "function" ? el.checkVisibility() : el.offsetParent !== null;
+
+  const sync = () => {
+    videos.forEach((video) => {
+      if (isVisible(video)) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  };
+
+  sync();
+  window.addEventListener("resize", sync);
+</script>

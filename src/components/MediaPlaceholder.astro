@@ -1,0 +1,24 @@
+---
+// Stand-in for screenshots and the hero video until real assets are captured
+// (see marketing/landing-page-content.md "Asset checklist"). Replace usages with
+// <img>/<video> as assets land. Renders a labeled, on-brand box so layout is real.
+import Icon from "./Icon.astro";
+
+interface Props {
+  label: string;
+  /** material-symbols icon name */
+  icon?: string;
+  /** aspect ratio, e.g. "9/19.5" for a phone, "16/9" for video */
+  ratio?: string;
+  class?: string;
+}
+const { label, icon = "image", ratio = "9/16", class: className = "" } = Astro.props;
+---
+
+<div
+  class={`bg-surface-container-high border border-surface-border rounded-2xl flex flex-col items-center justify-center gap-2 text-text-muted overflow-hidden ${className}`}
+  style={`aspect-ratio: ${ratio};`}
+>
+  <Icon name={icon} class="text-[40px] opacity-40" />
+  <span class="text-label-sm font-label-sm px-4 text-center opacity-70">{label}</span>
+</div>

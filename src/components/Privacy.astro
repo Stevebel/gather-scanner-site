@@ -1,0 +1,47 @@
+---
+// Section 8 — Privacy / data ownership.
+import Icon from "./Icon.astro";
+import CheckList from "./CheckList.astro";
+
+const points = [
+  "No account or sign-in required.",
+  "Your collection stays on your device. Export it whenever you want.",
+  "Nothing about your collection leaves your device unless you opt in.",
+  "Opt-in corrections are anonymous and used only to improve scanning.",
+];
+---
+
+<section
+  class="w-full bg-surface-elevated py-16 px-8 rounded-3xl text-center border border-surface-border relative overflow-hidden"
+  id="privacy"
+>
+  <div
+    class="absolute top-0 right-0 w-64 h-64 bg-primary/5 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"
+  >
+  </div>
+  <div class="max-w-3xl mx-auto flex flex-col gap-6 relative z-10 items-center">
+    <Icon name="shield_lock" class="text-[48px] text-on-surface mb-2" filled />
+    <h2 class="text-display font-display text-on-surface">
+      No accounts. No tracking. Your collection is yours.
+    </h2>
+    <p class="text-body-lg font-body-lg text-on-surface-variant">
+      There's no sign-up and no account. Open the app and start scanning. Your collection lives on
+      your device, not on a server. Gather Scanner doesn't sell your data, and doesn't collect it to
+      begin with.
+    </p>
+    <div
+      class="bg-surface-container-high p-6 rounded-xl border border-surface-border text-left w-full mt-4"
+    >
+      <p class="text-body-md font-body-md text-on-surface mb-2">
+        <strong class="text-primary font-bold">Help the scanner get smarter, only if you want to.</strong>
+        Fix a scan and you can choose to share that correction to improve recognition for everyone. Off
+        by default, anonymous, and yours to turn off anytime.
+      </p>
+      <a
+        class="text-primary hover:text-primary-fixed transition-colors font-label-md"
+        href="/privacy#whats-shared">See exactly what's shared →</a
+      >
+    </div>
+    <CheckList items={points} class="mt-4 text-left w-full max-w-xl" />
+  </div>
+</section>

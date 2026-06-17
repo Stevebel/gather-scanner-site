@@ -1,0 +1,20 @@
+---
+import Icon from "./Icon.astro";
+
+interface Props {
+  items: string[];
+  class?: string;
+}
+const { items, class: className = "" } = Astro.props;
+---
+
+<ul class={`flex flex-col gap-3 text-on-surface-variant font-body-md ${className}`}>
+  {
+    items.map((item) => (
+      <li class="flex items-center gap-3">
+        <Icon name="check_circle" class="text-primary text-[20px] shrink-0" />
+        <span>{item}</span>
+      </li>
+    ))
+  }
+</ul>

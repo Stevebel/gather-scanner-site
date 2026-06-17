@@ -1,0 +1,40 @@
+---
+// Section 13 — Footer & legal.
+import { site, links, disclaimer } from "../data/site";
+
+const year = new Date().getFullYear();
+
+const footerLinks = [
+  { label: "Privacy Policy", href: links.privacyPolicy },
+  { label: "Terms of Service", href: links.terms },
+  { label: "Contact Support", href: links.support },
+  { label: "Developer Note", href: "#top" },
+];
+---
+
+<footer
+  class="bg-surface-container-lowest text-primary text-body-md font-body-md flex flex-col items-center gap-stack-lg w-full px-page-margin py-stack-lg border-t border-surface-border mt-auto"
+>
+  <div class="max-w-7xl mx-auto w-full flex flex-col items-center gap-8">
+    <div class="flex items-center gap-2">
+      <img alt="" class="w-6 h-6 rounded-md opacity-80" src={site.icon} width="24" height="24" />
+      <span class="text-label-md font-headline-md font-bold text-on-surface">{site.name}</span>
+    </div>
+    <div class="flex flex-wrap justify-center gap-6">
+      {
+        footerLinks.map((link) => (
+          <a
+            class="text-text-muted hover:text-primary transition-colors duration-200 text-label-sm font-label-sm"
+            href={link.href}
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </div>
+    <div class="flex flex-col gap-4 max-w-3xl text-center">
+      <p class="text-label-sm font-label-sm text-text-muted opacity-80">{disclaimer}</p>
+      <p class="text-label-sm font-label-sm text-text-muted opacity-80">© {year} {site.name}.</p>
+    </div>
+  </div>
+</footer>

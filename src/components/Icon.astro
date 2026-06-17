@@ -1,0 +1,16 @@
+---
+// Thin wrapper around Material Symbols Outlined.
+interface Props {
+  name: string;
+  /** Tailwind classes for size/color, e.g. "text-primary text-2xl". */
+  class?: string;
+  /** Render the filled variant. */
+  filled?: boolean;
+}
+const { name, class: className = "", filled = false } = Astro.props;
+---
+
+<span
+  class={`material-symbols-outlined ${className}`}
+  style={filled ? "font-variation-settings: 'FILL' 1;" : undefined}
+  aria-hidden="true">{name}</span>

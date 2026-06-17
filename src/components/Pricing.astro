@@ -1,0 +1,68 @@
+---
+// Section 9 — Pricing.
+import { pricing } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<section class="w-full max-w-5xl mx-auto" id="pricing">
+  <div class="text-center mb-12">
+    <h2 class="text-headline-lg font-headline-lg text-on-surface mb-4">
+      Free to start. Unlock once. Yours forever.
+    </h2>
+    <p class="text-body-lg font-body-lg text-on-surface-variant">
+      Buy it once and to track your whole collection, no matter how big it gets.
+    </p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <!-- Free Tier -->
+    <div
+      class="bg-surface-elevated p-8 rounded-2xl border border-surface-border flex flex-col gap-6"
+    >
+      <div class="flex justify-between items-end">
+        <div class="flex flex-col">
+          <span
+            class="text-label-sm font-label-sm text-text-muted uppercase tracking-wider font-bold mb-1"
+            ></span
+          >
+          <h3 class="text-headline-md font-headline-md text-on-surface">Free</h3>
+        </div>
+        <div class="text-display font-display text-on-surface">$0</div>
+      </div>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Scan and organize a collection of up to <strong class="text-primary font-bold"
+          >{pricing.freeCap}</strong
+        >. Full scanning, Pull Lists, locations, and decks included.
+      </p>
+    </div>
+    <!-- Unlimited Tier -->
+    <div
+      class="bg-surface-container-high p-8 rounded-2xl border-2 border-primary/50 relative flex flex-col gap-6"
+    >
+      <div class="flex justify-between items-end">
+        <div class="flex flex-col">
+          <span
+            class="text-label-sm font-label-sm text-primary uppercase tracking-wider font-bold mb-1"
+            >Early Adopter Discount</span
+          >
+          <h3 class="text-headline-md font-headline-md text-primary">Unlimited</h3>
+        </div>
+        <div class="flex items-baseline gap-3">
+          <span class="text-display font-display text-primary">{pricing.introPrice}</span>
+          <span class="text-text-muted line-through">{pricing.fullPrice}</span>
+        </div>
+      </div>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Remove the cap for a <strong class="text-on-surface font-bold">one-time purchase</strong>.
+        Pay once, keep it forever.
+      </p>
+      <div
+        class="inline-flex items-center gap-2 self-start bg-primary/10 border border-primary/30 text-primary rounded-full px-component-padding-x py-2"
+      >
+        <Icon name="all_inclusive" class="text-[20px]" />
+        <span class="text-label-sm font-label-sm uppercase tracking-wider font-bold"
+          >One-time payment · Lifetime access</span
+        >
+      </div>
+    </div>
+  </div>
+</section>
