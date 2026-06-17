@@ -8,7 +8,7 @@ export const site = {
   description:
     "Gather Scanner identifies your Magic: The Gathering cards anywhere — in your hand, in bad light, any set, foil or not — and helps you find them later. On-device, private, no account.",
   // App icon (real icon from the iOS app, transparent background).
-  icon: "/icon.png",
+  icon: "icon.png",
 };
 
 // Pre-launch state. When the app ships, flip `launched` to true and fill in
