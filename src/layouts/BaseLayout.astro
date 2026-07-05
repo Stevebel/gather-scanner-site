@@ -1,5 +1,5 @@
 ---
-import { site } from "../data/site";
+import { site, withBase } from "../data/site";
 import "../styles/global.css";
 
 interface Props {
@@ -7,11 +7,13 @@ interface Props {
   description?: string;
 }
 const {
-  title = `${site.name} — MTG Card Scanner`,
+  title = `${site.name} - MTG Card Scanner`,
   description = site.description,
 } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
+// og:image must be a full URL for social-card crawlers.
+const ogImage = new URL(withBase("/og-image.png"), Astro.site).href;
 ---
 
 <!doctype html>
@@ -29,7 +31,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image" content={ogImage} />
     <meta name="twitter:card" content="summary_large_image" />
 
     <!-- Fonts: Hanken Grotesk + Material Symbols (matches the mockup) -->

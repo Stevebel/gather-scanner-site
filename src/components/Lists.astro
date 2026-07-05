@@ -1,0 +1,46 @@
+---
+// Section 3 — Lists. Includes the resolved-list visual from the mockup.
+import CheckList from "./CheckList.astro";
+
+const points = [
+  "Import from your preferred deck-building site or add cards one by one.",
+  "See what's in place, what's stored elsewhere, and what you still need.",
+  "Wanted cards are marked as you scan, ready to move to their new home.",
+];
+---
+
+<section class="w-full flex flex-col md:flex-row-reverse items-center gap-16 scroll-mt-24" id="lists">
+  <div class="flex-1 flex flex-col gap-stack-lg">
+    <h2 class="text-headline-lg font-headline-lg text-on-surface">
+      Stop tearing the house apart for one card.
+    </h2>
+    <p class="leading-none text-sm italic text-on-surface-variant/65 -mt-4"> 
+      That one uncommon you swear you opened during a draft 5 months ago 
+    </p>
+    <h3 class="text-headline-md font-headline-md text-primary">
+      Lists help you find the cards you own and highlight the ones you don't.
+    </h3>
+    <p class="text-body-lg font-body-lg text-on-surface-variant">
+      Building a deck, updating a cube, or just pulling cards for your friend's in-search-of?
+      <br/><br/>
+      Make a <span class="font-bold text-on-surface">List</span> for it.
+    </p>
+    <CheckList items={points} class="mt-4" />
+  </div>
+
+  <div
+    class="flex-1 w-full bg-surface-elevated rounded-2xl p-8 border border-surface-border relative overflow-hidden flex items-center justify-center"
+  >
+    <div class="absolute inset-0 bg-pattern opacity-10"></div>
+    <div class="relative z-10 w-full max-w-sm">
+      <img
+        src="pull-list.jpg"
+        alt="A List resolved to locations, showing which binder or box each card is in"
+        width="1206"
+        height="2622"
+        class="w-full rounded-[2rem] border-4 border-surface-container-high shadow-xl"
+        loading="lazy"
+      />
+    </div>
+  </div>
+</section>

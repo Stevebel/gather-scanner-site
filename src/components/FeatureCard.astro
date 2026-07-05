@@ -2,11 +2,15 @@
 // Simple titled card used for the secondary feature column.
 interface Props {
   title: string;
+  subtitle?: string;
 }
-const { title } = Astro.props;
+const { title, subtitle } = Astro.props;
 ---
 
 <div class="bg-surface-elevated p-8 rounded-2xl border border-surface-border flex flex-col gap-4">
   <h2 class="text-headline-lg font-headline-lg text-on-surface">{title}</h2>
+  {subtitle && (
+    <h3 class="text-headline-md font-headline-md text-primary">{subtitle}</h3>
+  )}
   <p class="text-body-md font-body-md text-on-surface-variant"><slot /></p>
 </div>

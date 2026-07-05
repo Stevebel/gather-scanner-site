@@ -1,0 +1,140 @@
+---
+// Terms of use. The app license itself rests on Apple's standard EULA; this page
+// supplements it with what's specific to Gather Scanner (prices, corrections,
+// disclaimers) and covers the website. Plain-English and first person to match the
+// rest of the site. Keep in sync with the privacy policy.
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import { site, links, withBase } from "../data/site";
+
+const effectiveDate = "July 5, 2026";
+---
+
+<BaseLayout title={`Terms of Use — ${site.name}`} description={`The terms for using ${site.name} and this website.`}>
+  <main class="flex-grow w-full max-w-3xl mx-auto px-page-margin py-16 flex flex-col gap-10">
+    <a
+      class="text-primary hover:text-primary-fixed transition-colors font-label-md self-start"
+      href={withBase("/")}>← Back to Gather Scanner</a
+    >
+
+    <header class="flex flex-col gap-3">
+      <h1 class="text-display font-display text-on-surface">Terms of Use</h1>
+      <p class="text-label-sm font-label-sm text-text-muted">Effective {effectiveDate}</p>
+    </header>
+
+    <section class="bg-surface-elevated p-6 rounded-2xl border border-surface-border flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">The short version</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Use the app for what it's for: tracking your collection. Card prices are estimates, not
+        appraisals. If you choose to share scan corrections, you're letting me use them to train
+        the scanner. The app is provided as-is by one person doing his best. These terms cover
+        both the Gather Scanner app and this website.
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">The app license</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Your license to use Gather Scanner is
+        <a class="text-primary hover:text-primary-fixed transition-colors" href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" rel="noopener">Apple's standard Licensed Application End User License Agreement</a>,
+        which applies to apps distributed through the App Store. The terms on this page
+        supplement that agreement with the parts specific to Gather Scanner. If they conflict,
+        Apple's agreement wins for anything about the license itself.
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">Purchases</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        The Unlimited unlock is a one-time in-app purchase processed by Apple. Payment, billing,
+        and refunds are handled entirely through Apple and follow
+        <a class="text-primary hover:text-primary-fixed transition-colors" href="https://www.apple.com/legal/internet-services/itunes/" rel="noopener">Apple's media services terms</a>.
+        I never see your payment details and can't issue refunds directly.
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">Card prices are estimates</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Price data comes from third-party sources and is provided for your information only. I
+        don't guarantee that prices are accurate, current, or complete, and they aren't
+        appraisals or financial advice. Before buying, selling, or trading cards for real money,
+        verify prices with the marketplace you're actually using.
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">Shared scan corrections</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Sharing corrections is optional and off by default; what a correction contains is
+        described in the
+        <a class="text-primary hover:text-primary-fixed transition-colors" href={withBase("/privacy#whats-shared")}>privacy policy</a>.
+        If you opt in, you grant me a perpetual, worldwide, royalty-free license to use your
+        shared corrections to train and improve Gather Scanner's card-recognition models. Models
+        trained this way may also power related products I build in the future. Because
+        submissions are anonymous, they can't be identified or withdrawn after they're sent;
+        opting out stops future sharing.
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">Fair use of the app and site</h2>
+      <ul class="list-disc pl-6 flex flex-col gap-2 text-body-md font-body-md text-on-surface-variant">
+        <li>Don't use the app or website in ways that break the law or infringe others' rights.</li>
+        <li>Don't submit deliberately false, abusive, or junk content through correction sharing.</li>
+        <li>Don't attempt to disrupt, overload, or gain unauthorized access to the services behind the app or this site.</li>
+      </ul>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">Magic: The Gathering</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Gather Scanner is unofficial Fan Content permitted under the
+        <a class="text-primary hover:text-primary-fixed transition-colors" href="https://company.wizards.com/en/legal/fancontentpolicy" rel="noopener">Wizards of the Coast Fan Content Policy</a>.
+        It is not approved or endorsed by Wizards of the Coast and is not affiliated with
+        Wizards of the Coast or Hasbro, Inc. Portions of the materials used, including card
+        names and card images, are property of Wizards of the Coast LLC. ©Wizards of the Coast
+        LLC. Magic: The Gathering® is a trademark of Wizards of the Coast LLC. For more
+        information about Wizards of the Coast and its trademarks, visit
+        <a class="text-primary hover:text-primary-fixed transition-colors" href="https://company.wizards.com/" rel="noopener">company.wizards.com</a>.
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">No warranty, limited liability</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Gather Scanner and this website are provided "as is" and "as available," without
+        warranties of any kind, express or implied, to the maximum extent permitted by law. To
+        the same extent, I am not liable for indirect, incidental, special, or consequential
+        damages arising from your use of the app or site, and my total liability for any claim
+        is limited to the amount you paid for the app. Nothing here limits rights you have under
+        law that can't be limited by agreement.
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">Changes to these terms</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        If these terms change, this page will be updated and the effective date above will
+        change. Continuing to use the app or site after a change means you accept the updated
+        terms.
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">Governing law</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        These terms are governed by the laws of the State of New York, United States, without
+        regard to its conflict-of-law rules.
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">Questions</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Email <a class="text-primary hover:text-primary-fixed transition-colors" href={links.support}>support@gatherscanner.com</a>.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

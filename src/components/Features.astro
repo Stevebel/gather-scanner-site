@@ -1,43 +1,28 @@
 ---
-// Section 2 — depth of recognition (finish, printing, on-device).
-// Header preserved from the mockup per request; proof points follow the content spec.
+// Section 2 — shown on mobile/tablet only. Desktop gets these cards inline in the hero.
 import Icon from "./Icon.astro";
-
-const cards = [
-  {
-    icon: "smartphone",
-    title: "Recognition runs entirely on your phone",
-    body: "No account, nothing sent off to figure out your cards. That makes it fast and private, and it works with zero signal at the game store or on a plane.",
-  },
-  {
-    icon: "auto_awesome",
-    title: "Foil, etched, or non-foil",
-    body: "Gather Scanner detects a card's finish automatically, something other scanners don't even attempt. Not sure it got it right? A quick tilt confirms it.",
-  },
-  {
-    icon: "content_copy",
-    title: "Printing-aware, not just name-aware",
-    body: "It recognizes which printing you're holding and gets you to the right set and version most of the time. When reprints share art or treatments, picking the exact one is a single tap.",
-  },
-];
+import { featureCards as cards } from "../data/features";
 ---
 
-<section class="w-full flex flex-col gap-16" id="features">
+<section class="md:hidden w-full flex flex-col gap-16" id="features">
   <div class="text-center max-w-3xl mx-auto">
     <h2 class="text-headline-lg font-headline-lg text-on-surface mb-4">
       You won't believe the results you get with just your phone
     </h2>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <div class="grid grid-cols-1 gap-3">
     {
       cards.map((card) => (
-        <div class="bg-surface-elevated p-8 rounded-2xl border border-surface-border flex flex-col gap-4">
-          <div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center border border-surface-border">
-            <Icon name={card.icon} class="text-primary text-2xl" />
-          </div>
-          <h3 class="text-headline-md font-headline-md text-on-surface">{card.title}</h3>
-          <p class="text-body-md font-body-md text-on-surface-variant">{card.body}</p>
-        </div>
+        <a
+          href={card.href}
+          class="group leading-tight bg-surface-elevated px-5 py-4 rounded-2xl border border-surface-border hover:border-primary/50 hover:bg-surface-container-high transition-colors flex flex-col gap-2"
+        >
+          <h3 class="text-label-lg font-label-lg text-on-surface group-hover:text-primary transition-colors flex items-center gap-2 min-h-[3em]">
+            <Icon name={card.icon} class="text-primary text-xl shrink-0" />
+            <span set:html={card.title} />
+          </h3>
+          <p class="text-body-sm font-body-sm text-on-surface-variant">{card.body}</p>
+        </a>
       ))
     }
   </div>

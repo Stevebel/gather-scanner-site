@@ -5,13 +5,12 @@ import CheckList from "./CheckList.astro";
 import FeatureCard from "./FeatureCard.astro";
 
 const organizePoints = [
-  "Unlimited locations and decks.",
-  "Designed around finding cards, not just listing them.",
-  "Move cards between places as your collection shifts.",
+  "Unlimited locations, decks, and lists.",
+  "Built to find your cards, no matter how large the collection.",
 ];
 ---
 
-<section class="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+<section class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 scroll-mt-24" id="collection">
   <!-- Section 4 — Organize. (DOM-first so it leads on mobile; shown in the right
        column on desktop via order utilities.) -->
   <div
@@ -21,10 +20,14 @@ const organizePoints = [
       <h2 class="text-headline-lg font-headline-lg text-on-surface mb-4">
         Unlimited binders, boxes, and decks.
       </h2>
+      <div class="flex justify-around flex-wrap gap-2 -mt-2 mb-2 text-on-surface/70">
+        <div>"Trade Binder"</div>
+        <div class="mt-2">"STX Bulk Box"</div>
+        <div>"Mono U Tempo"</div>
+      </div>
       <p class="text-body-md font-body-md text-on-surface-variant mb-6">
-        Set up as many locations and decks as you need: "Trade Binder," "Bulk Box 3," "Mono Red
-        Aggro," whatever matches how you really store cards. Gather Scanner is built to help you find
-        a card fast, so it shines when your collection is spread across lots of places.
+        Gather Scanner lets you organize your virtual collection to match
+        your physical one.
       </p>
       <CheckList items={organizePoints} />
     </div>
@@ -42,19 +45,21 @@ const organizePoints = [
 
   <!-- Sections 5–7 -->
   <div class="md:order-1 flex flex-col gap-8">
-    <FeatureCard title="Pulled a card from another deck? It won't get lost.">
-      We've all robbed one deck to finish another. Gather Scanner lets you borrow a card from a deck
-      and tracks where it came from, so when you're rebuilding later you know exactly what's missing
-      and which deck lent it out. No more mystery gaps.
+    <FeatureCard title="Pulled a card from another deck?">
+      We've all grabbed a card from one deck to finish another. Gather Scanner
+      tracks where cards are borrowed from, so you know exactly what's missing 
+      and which deck is using it.
     </FeatureCard>
     <FeatureCard title="Keep an eye on your collection's value.">
-      Gather Scanner tracks card prices so you can see what your collection is worth and spot what's
-      moving. Prices update in the background. No spreadsheets, no manual lookups.
+      Gather Scanner tracks card prices so you can see what your collection is
+      worth and spot what's moving. Prices update daily so you can check your
+      trades without digging through marketplaces.
     </FeatureCard>
-    <FeatureCard title="Tune it to your setup.">
-      Every collection session is different. Adjust scan sensitivity and speed, power-saving
-      behavior, sounds, and more so the scanner fits how you work, whether you're ripping through
-      bulk or carefully cataloguing the good stuff.
+    <FeatureCard title="Tune it to your tastes.">
+      Flexible settings let you tune the scanner to your liking. 
+      Choose between higher speed or better accuracy, 
+      scan hands-free with gestures, and enable power-saving 
+      when you're away from an outlet.
     </FeatureCard>
   </div>
 </section>

@@ -1,0 +1,128 @@
+---
+// Privacy policy. Written plain-English and first person to match the rest of the
+// site. Every claim here must stay in sync with the app's actual behavior and the
+// App Store privacy labels. Linked from the footer and from the landing page's
+// privacy section ("See exactly what's shared" -> #whats-shared).
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Footer from "../components/Footer.astro";
+import { site, links, withBase } from "../data/site";
+
+const effectiveDate = "July 5, 2026";
+---
+
+<BaseLayout title={`Privacy Policy — ${site.name}`} description={`How ${site.name} handles your data: no accounts, no tracking, and card recognition that runs entirely on your device.`}>
+  <main class="flex-grow w-full max-w-3xl mx-auto px-page-margin py-16 flex flex-col gap-10">
+    <a
+      class="text-primary hover:text-primary-fixed transition-colors font-label-md self-start"
+      href={withBase("/")}>← Back to Gather Scanner</a
+    >
+
+    <header class="flex flex-col gap-3">
+      <h1 class="text-display font-display text-on-surface">Privacy Policy</h1>
+      <p class="text-label-sm font-label-sm text-text-muted">Effective {effectiveDate}</p>
+    </header>
+
+    <!-- Plain-English summary -->
+    <section class="bg-surface-elevated p-6 rounded-2xl border border-surface-border flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">The short version</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Gather Scanner has no accounts and doesn't track you. Your collection lives on your
+        phone, and card recognition runs entirely on the device. The only information the app
+        ever sends anywhere is a scan correction you explicitly choose to share, and that's
+        off by default. Everything below is the detail behind those sentences.
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">What does use the network</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        A few things require an internet connection. None of them send information about you or
+        your collection:
+      </p>
+      <ul class="list-disc pl-6 flex flex-col gap-2 text-body-md font-body-md text-on-surface-variant">
+        <li>
+          <strong class="text-on-surface">Card data and price updates.</strong> At app start,
+          Gather Scanner downloads the latest card database and price list from GitHub Releases.
+          This is a plain file download: no additional information is sent. Like
+          any web request, GitHub's servers see your IP address, covered by
+          <a class="text-primary hover:text-primary-fixed transition-colors" href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub's privacy statement</a>.
+        </li>
+        <li>
+          <strong class="text-on-surface">Purchases.</strong> The one-time unlock is processed
+          entirely by Apple through the App Store. I never see your payment details.
+        </li>
+        <li>
+          <strong class="text-on-surface">Crash reports.</strong> If you've opted in to sharing
+          crash data with developers in your iOS settings, Apple provides anonymized crash
+          reports. There is no third-party crash or analytics SDK in the app.
+        </li>
+        <li>
+          <strong class="text-on-surface">Opt-in scan corrections.</strong> Described in full
+          below.
+        </li>
+      </ul>
+    </section>
+
+    <section class="flex flex-col gap-3 scroll-mt-24" id="whats-shared">
+      <h2 class="text-headline-md font-headline-md text-on-surface">Opt-in scan corrections: exactly what's shared</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        When the scanner gets a card wrong and you correct it, you can choose to share that
+        correction to improve recognition for everyone. This is <strong class="text-on-surface">off by default</strong>
+        and you can turn it off anytime in settings. If you opt in, each shared correction contains
+        exactly three things:
+      </p>
+      <ul class="list-disc pl-6 flex flex-col gap-2 text-body-md font-body-md text-on-surface-variant">
+        <li>A close-up crop of the scanned card image. (Only the area inside the highlighted frame is shared.)</li>
+        <li>The card the scanner identified it as.</li>
+        <li>The card you corrected it to.</li>
+      </ul>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Corrections contain no device identifier, email, location, or anything about the
+        rest of your collection. They're stored on my server and used only to train and improve
+        card recognition, in Gather Scanner and in related products I may build. They are never
+        sold or shared with anyone else. Because submissions are anonymous, I have no way to connect a
+        stored correction back to you, which also means I can't retrieve or delete a specific
+        person's submissions on request. If that gives you pause, leave sharing off; the scanner
+        works identically either way.
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">Gather Scanner doesn't collect your data</h2>
+      <ul class="list-disc pl-6 flex flex-col gap-2 text-body-md font-body-md text-on-surface-variant">
+        <li>No accounts, sign-ins, or email addresses. There's nothing to sign up for.</li>
+        <li>No analytics or advertising SDKs, and no ads.</li>
+        <li>No tracking of what you scan, own, or search for.</li>
+        <li>Your collection is never uploaded to a server. It stays on your device and in your normal device backups, under your control.</li>
+      </ul>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">Your collection is yours</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Everything you scan and organize is stored on your device. You can export your full
+        collection at any time, and deleting the app deletes its data from your device (your own
+        iOS backups are governed by your device settings). There is no server-side copy for me to
+        keep, share, or lose.
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">Changes to this policy</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        If the app's behavior changes in a way that affects your privacy, this page will be
+        updated and the effective date above will change before that behavior ships. Any such
+        change will also coincide with an app update and a notification inside the app, so you
+        won't have to re-read this page to find out something changed.
+      </p>
+    </section>
+
+    <section class="flex flex-col gap-3">
+      <h2 class="text-headline-md font-headline-md text-on-surface">Questions</h2>
+      <p class="text-body-md font-body-md text-on-surface-variant">
+        Email <a class="text-primary hover:text-primary-fixed transition-colors" href={links.support}>support@gatherscanner.com</a>.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
